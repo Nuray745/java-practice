@@ -1,20 +1,49 @@
 package org.ironhack.envsetup;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
+
     public static void main(String[] args) {
-        int[] numbers = {1, 2, 3, 4, 5};
-        int[] reversedArray = new int[numbers.length];
+
+        int[] numbers = {5, 2, 8, 1, 3};
+
+        // =========================
+        // Exercise 1
+        // =========================
+
+        int max = numbers[0];
+        int min = numbers[0];
 
         for (int i = 0; i < numbers.length; i++) {
-            reversedArray[i] = numbers[numbers.length - 1 - i];
+            if (numbers[i] > max) {
+                max = numbers[i];
+            }
+            if (numbers[i] < min) {
+                min = numbers[i];
+            }
         }
 
-        // Print the reversed array
-        for (int number : reversedArray) {
-            System.out.println(number);
+        int difference = max - min;
+        System.out.println("Difference between max and min: " + difference);
+
+
+        // =========================
+        // Exercise 2
+        // =========================
+
+        int smallest = Integer.MAX_VALUE;
+        int secondSmallest = Integer.MAX_VALUE;
+
+        for (int i = 0; i < numbers.length; i++) {
+
+            if (numbers[i] < smallest) {
+                secondSmallest = smallest;
+                smallest = numbers[i];
+            } else if (numbers[i] < secondSmallest && numbers[i] != smallest) {
+                secondSmallest = numbers[i];
+            }
         }
-        // Output: 5 4 3 2 1 (each on its own line)
+
+        System.out.println("Smallest number: " + smallest);
+        System.out.println("Second smallest number: " + secondSmallest);
     }
 }
